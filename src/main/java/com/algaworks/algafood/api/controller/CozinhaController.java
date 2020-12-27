@@ -15,7 +15,7 @@ import com.algaworks.algafood.domain.model.Cozinha;
 import com.algaworks.algafood.domain.repository.CozinhaRepository;
 
 @RestController
-@RequestMapping(value = "/cozinhas")
+@RequestMapping("/cozinhas")
 public class CozinhaController {
 
 	@Autowired
@@ -34,7 +34,6 @@ public class CozinhaController {
 	@GetMapping("/{cozinhaId}")
 	public ResponseEntity<Cozinha> buscar(@PathVariable Long cozinhaId) {
 		Cozinha cozinha = cozinhaRepository.buscar(cozinhaId);
-		
 		return cozinha == null ? ResponseEntity.notFound().build() :  ResponseEntity.ok(cozinha);
 	}
 	
